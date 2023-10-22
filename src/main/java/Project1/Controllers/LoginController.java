@@ -14,7 +14,6 @@ import java.util.List;
 public class LoginController {
     private PersonService personService = new PersonService();
 
-
     @RequestMapping("/loginPage")
     public String loginPageView(){
         return "login-view";

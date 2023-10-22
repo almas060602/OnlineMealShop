@@ -37,37 +37,37 @@ public class MyConfig {
         return new ArrayList<>();
     }
 
-    @Autowired
-    private Environment environment;
-
-    @Bean
-    @Scope("singleton")
-    public Person personBean1(){
-        Person person = new Person(fruitArrayList());
-        person.setLogin(environment.getProperty("personLogin1"));
-        person.setPassword(environment.getProperty("personPassword1"));
-        person.setFirstName(environment.getProperty("personName1"));
-        person.setLastName(environment.getProperty("personLastName1"));
-        return person;
-    }
-    @Bean
-    @Scope("singleton")
-    public Person personBean2(){
-        Person person = new Person(fruitArrayList());
-        person.setLogin(environment.getProperty("personLogin2"));
-        person.setPassword(environment.getProperty("personPassword2"));
-        person.setFirstName(environment.getProperty("personName2"));
-        person.setLastName(environment.getProperty("personLastName2"));
-        return person;
-    }
-    @Bean
-    @Scope("singleton")
-    public Person personBean3(){
-        Person person = new Person(fruitArrayList());
-        person.setLogin(environment.getProperty("personLogin3"));
-        person.setPassword(environment.getProperty("personPassword3"));
-        person.setFirstName(environment.getProperty("personName3"));
-        person.setLastName(environment.getProperty("personLastName3"));
-        return person;
-    }
+//    @Autowired
+//    private Environment environment;
+//
+//    @Bean
+//    @Scope("singleton")
+//    public Person personBean1(){
+//        Person person = new Person(fruitArrayList());
+//        person.setLogin(environment.getProperty("personLogin1"));
+//        person.setPassword(environment.getProperty("personPassword1"));
+//        person.setFirstName(environment.getProperty("personName1"));
+//        person.setLastName(environment.getProperty("personLastName1"));
+//        return person;
+//    }
+//    @Bean
+//    @Scope("singleton")
+//    public Person personBean2(){
+//        Person person = new Person(fruitArrayList());
+//        person.setLogin(environment.getProperty("personLogin2"));
+//        person.setPassword(environment.getProperty("personPassword2"));
+//        person.setFirstName(environment.getProperty("personName2"));
+//        person.setLastName(environment.getProperty("personLastName2"));
+//        return person;
+//    }
+//    @Bean
+//    @Scope("singleton")
+//    public Person personBean3(){
+//        Person person = new Person(fruitArrayList());
+//        person.setLogin(environment.getProperty("personLogin3"));
+//        person.setPassword(environment.getProperty("personPassword3"));
+//        person.setFirstName(environment.getProperty("personName3"));
+//        person.setLastName(environment.getProperty("personLastName3"));
+//        return person;
+//    }
 }

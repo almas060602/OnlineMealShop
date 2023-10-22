@@ -55,6 +55,11 @@ public class PersonDAOImpl implements PersonDAO {
         person.setLastName(lastName);
         person.setLogin(login);
         person.setPassword(password);
+        session.save(person);
+        session.getTransaction().commit();
+        session.close();
         return person;
     }
 }
+
+
