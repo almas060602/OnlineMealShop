@@ -1,11 +1,7 @@
 package Project1.Configuration;
 
 import Project1.DataBase.Fruit;
-import Project1.DataBase.Person;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
-import org.springframework.core.env.Environment;
-
 import java.util.ArrayList;
 
 

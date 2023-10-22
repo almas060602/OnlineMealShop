@@ -1,11 +1,9 @@
 package Project1.DAO;
 
 import Project1.DataBase.Fruit;
-import Project1.DataBase.Person;
 import Project1.Service.HibernateSessionFactoryUtil;
 import org.hibernate.Session;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class FruitDAOImpl implements FruitDAO{
@@ -15,14 +13,14 @@ public class FruitDAOImpl implements FruitDAO{
             session.beginTransaction();
             session.save(fruit);
             session.getTransaction().commit();
-            session.close();;
+            session.close();
     }
 
     @Override
     public List<Fruit> getAll() {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        List<Fruit> fruitList = session.createQuery("from Fruit").getResultList();
+        List<Fruit> fruitList = session.createQuery("from Fruit", Fruit.class).getResultList();
         session.getTransaction().commit();
         session.close();
         return fruitList;
@@ -40,12 +38,10 @@ public class FruitDAOImpl implements FruitDAO{
 
     @Override
     public void delete(Fruit fruit) {
-        if (fruit instanceof Fruit){
             Session session = HibernateSessionFactoryUtil.getSessionFactory().getCurrentSession();
             session.beginTransaction();
             session.delete(fruit);
             session.getTransaction().commit();
             session.close();
-        }
     }
 }
