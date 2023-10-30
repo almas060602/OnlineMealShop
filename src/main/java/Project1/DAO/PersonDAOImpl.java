@@ -1,7 +1,7 @@
 package Project1.DAO;
 
 import Project1.DataBase.Person;
-import Project1.Service.HibernateSessionFactoryUtil;
+import Project1.Service.HibernateSessions.HibernateSessionFactoryUtil;
 import org.hibernate.Session;
 
 import java.util.List;

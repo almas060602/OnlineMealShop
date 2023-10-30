@@ -16,6 +16,9 @@
 
 
         <mapping class="Project1.DataBase.Person"/>
+        <mapping class="Project1.DataBase.Fruit"/>
+        <mapping class="Project1.DataBase.Vegetable"/>
+        <mapping class="Project1.DataBase.Meat"/>
 
     </session-factory>
 </hibernate-configuration>

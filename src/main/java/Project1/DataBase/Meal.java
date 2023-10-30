@@ -1,31 +1,20 @@
 package Project1.DataBase;
 
 import javax.persistence.*;
-import java.util.Objects;
 
-
-//@Component("mealBean")
 @Entity
 @Table(name = "meals")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "meal_type")
-public abstract class Meal {
-
+@DiscriminatorColumn(name = "meal_type", discriminatorType = DiscriminatorType.STRING)
+public class Meal {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Присваевает id в джаве автоматический
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-    @Column(name = "name")
     private String name;
-
-    @Column(name = "calories")
     private double calories;
-
-    @Column(name = "price")
     private int price;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "person_id")
     private Person person;
 
@@ -36,14 +25,6 @@ public abstract class Meal {
         this.name = name;
         this.calories = calories;
         this.price = price;
-    }
-
-    public Person getPerson() {
-        return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
     }
 
     public int getId() {
@@ -78,20 +59,13 @@ public abstract class Meal {
         this.price = price;
     }
 
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Meal meal = (Meal) o;
-        return Double.compare(meal.calories, calories) == 0 && price == meal.price && Objects.equals(name, meal.name);
+    public Person getPerson() {
+        return person;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, calories, price);
+    public void setPerson(Person person) {
+        this.person = person;
     }
-
 
     @Override
     public String toString() {

@@ -1,6 +1,6 @@
 package Project1.Configuration;
 
-import Project1.DataBase.Fruit;
+import Project1.DataBase.*;
 import org.springframework.context.annotation.*;
 import java.util.ArrayList;
 
@@ -9,27 +9,34 @@ import java.util.ArrayList;
 @ComponentScan("Project1")
 public class MyConfig {
 
-//    @Bean
-//    @Scope("prototype")
-//    public Meal meatBean(){
-//        return new Meat();
-//    }
-
-//    @Bean
-//    @Scope("prototype")
-//    public Meal fruitBean(){
-//        return new Fruit();
-//    }
-//
-//    @Bean
-//    @Scope("prototype")
-//    public Meal vegetableBean(){
-//        return new Vegetable();
-//    }
 
     @Bean
     @Scope("prototype")
-    public ArrayList<Fruit> fruitArrayList(){
+    public Person personBean(){
+        return new Person();
+    }
+
+    @Bean
+    @Scope("prototype")
+    public Meal meatBean(){
+        return new Meat();
+    }
+
+    @Bean
+    @Scope("prototype")
+    public Meal fruitBean(){
+        return new Fruit();
+    }
+
+    @Bean
+    @Scope("prototype")
+    public Meal vegetableBean(){
+        return new Vegetable();
+    }
+
+    @Bean
+    @Scope("prototype")
+    public ArrayList<Meal> mealArrayList(){
         return new ArrayList<>();
     }
 

@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: UserPS
@@ -12,5 +13,6 @@
 </head>
 <body>
 <h2>You are welcome, ${NameAttribute}</h2>
+
 </body>
 </html>

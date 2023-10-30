@@ -26,8 +26,8 @@ public class Person {
 
     @OneToMany(mappedBy = "person",
             cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY)
-    private List<Fruit> fruitList;
+            fetch = FetchType.EAGER)
+    private List<Meal> mealList;
 
     public Person() {
     }
@@ -37,10 +37,6 @@ public class Person {
         this.lastName = lastName;
         this.login = login;
         this.password = password;
-    }
-
-    public Person(List<Fruit> list) {
-        fruitList = new ArrayList<>();
     }
 
     public int getId() {
@@ -83,17 +79,20 @@ public class Person {
         this.password = password;
     }
 
-    public List<Fruit> getFruitList() {
-        return fruitList;
+    public List<Meal> getMealList() {
+        return mealList;
     }
 
-    public void setFruitList(List<Fruit> fruitList) {
-        this.fruitList = fruitList;
+    public void setMealList(List<Meal> mealList) {
+        this.mealList = mealList;
     }
 
-    public void addFruit(Fruit fruit){
-        fruit.setPerson(this);
-        fruitList.add(fruit);
+    public void addMeal(Meal meal){
+        if(mealList == null){
+            mealList = new ArrayList<>();
+        }
+        mealList.add(meal);
+        meal.setPerson(this);
     }
 
     @Override

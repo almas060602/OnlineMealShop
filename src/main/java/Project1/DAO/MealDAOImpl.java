@@ -1,46 +1,46 @@
 package Project1.DAO;
 
-import Project1.DataBase.Fruit;
-import Project1.Service.HibernateSessionFactoryUtil;
+import Project1.DataBase.Meal;
+import Project1.Service.HibernateSessions.HibernateSessionFactoryUtil;
 import org.hibernate.Session;
 
 import java.util.List;
 
-public class FruitDAOImpl implements FruitDAO{
+public class MealDAOImpl implements MealDAO {
     @Override
-    public void save(Fruit fruit) {
+    public void save(Meal meal) {
             Session session = HibernateSessionFactoryUtil.getSessionFactory().getCurrentSession();
             session.beginTransaction();
-            session.save(fruit);
+            session.save(meal);
             session.getTransaction().commit();
             session.close();
     }
 
     @Override
-    public List<Fruit> getAll() {
+    public List<Meal> getAll() {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        List<Fruit> fruitList = session.createQuery("from Fruit", Fruit.class).getResultList();
+        List<Meal> mealList = session.createQuery("from Meal", Meal.class).getResultList();
         session.getTransaction().commit();
         session.close();
-        return fruitList;
+        return mealList;
     }
 
     @Override
-    public Fruit findByID(int id) {
+    public Meal findByID(int id) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        Fruit fruit = session.get(Fruit.class, id);
+        Meal meal = session.get(Meal.class, id);
         session.getTransaction().commit();
         session.close();
-        return fruit;
+        return meal;
     }
 
     @Override
-    public void delete(Fruit fruit) {
+    public void delete(Meal meal) {
             Session session = HibernateSessionFactoryUtil.getSessionFactory().getCurrentSession();
             session.beginTransaction();
-            session.delete(fruit);
+            session.delete(meal);
             session.getTransaction().commit();
             session.close();
     }
