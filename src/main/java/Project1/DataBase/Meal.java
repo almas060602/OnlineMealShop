@@ -14,6 +14,16 @@ public class Meal {
     private double calories;
     private int price;
 
+    @Transient
+    private String mealType;
+
+    public String getMealType() {
+        return mealType;
+    }
+
+    public void setMealType(String mealType) {
+        this.mealType = mealType;
+    }
     @ManyToOne
     @JoinColumn(name = "person_id")
     private Person person;
@@ -66,6 +76,8 @@ public class Meal {
     public void setPerson(Person person) {
         this.person = person;
     }
+
+
 
     @Override
     public String toString() {

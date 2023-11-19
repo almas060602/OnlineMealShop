@@ -3,8 +3,6 @@ package Project1.Configuration;
 import Project1.DataBase.*;
 import org.springframework.context.annotation.*;
 import java.util.ArrayList;
-
-
 @Configuration
 @ComponentScan("Project1")
 public class MyConfig {

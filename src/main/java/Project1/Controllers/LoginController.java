@@ -1,6 +1,7 @@
 package Project1.Controllers;
 
 
+import Project1.DataBase.Meal;
 import Project1.DataBase.Person;
 import Project1.Service.PersonService;
 import org.springframework.stereotype.Controller;
@@ -14,12 +15,12 @@ import java.util.List;
 public class LoginController {
     private PersonService personService = new PersonService();
 
-    @RequestMapping("/loginPage")
+    @RequestMapping("/loginPageMethod")
     public String loginPageView(){
         return "login-view";
     }
 
-    @RequestMapping("/registrationPage")
+    @RequestMapping("/registrationPageMethod")
     public String registrationPageView(HttpServletRequest request) {
         String resultPage;
         String password = request.getParameter("password");
@@ -40,17 +41,20 @@ public class LoginController {
         return resultPage;
     }
 
-    @RequestMapping("/resultNamePage")
+    @RequestMapping("/successLoginPageMethod")
     public String resultName(HttpServletRequest request, Model model){
         List<Person> personList = personService.getAllPersons();
+        Person person = null;
         String resultPage = null;
         for(Person p: personList){
             if(request.getParameter("login").equals(p.getLogin()) &&
             request.getParameter("password").equals(p.getPassword())){
                 model.addAttribute("NameAttribute", p.getFirstName());
-                resultPage = "result-view";
+                person = p;
+                resultPage = "loginResult-view";
             }
         }
+        model.addAttribute("personAttribute", person);
         return resultPage;
     }
 }

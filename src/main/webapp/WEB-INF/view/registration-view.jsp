@@ -12,7 +12,7 @@
 </head>
 <body>
 <h2>Registration</h2>
-<form action="registrationPage" method="get">
+<form action="registrationPageMethod" method="get">
 
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" placeholder="Enter your name.."><br><br>

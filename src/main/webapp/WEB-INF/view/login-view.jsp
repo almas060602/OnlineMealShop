@@ -5,7 +5,7 @@
 </head>
 <body>
 <h2>Login</h2>
-<form action="resultNamePage" method="get">
+<form action="successLoginPageMethod" method="get">
     <label for="login">Login:</label>
     <input type="text" id="login" name="login" placeholder="Enter your login.."><br><br>
 
@@ -15,6 +15,6 @@
     <input type="submit" value="Submit">
 </form>
 <br>
-<a href="registrationPage">Registration</a>
+<a href="registrationPageMethod">Registration</a>
 </body>
 </html>
