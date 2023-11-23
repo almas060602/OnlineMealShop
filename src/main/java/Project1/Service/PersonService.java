@@ -2,9 +2,12 @@ package Project1.Service;
 
 import Project1.DAO.PersonDAOImpl;
 import Project1.DataBase.Person;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
+@Service
 public class PersonService {
     private PersonDAOImpl personDAOImpl = new PersonDAOImpl();
 
@@ -23,8 +26,13 @@ public class PersonService {
         personDAOImpl.delete(person);
         System.out.println("Deleted");
     }
+    public void deletePersonByID(int id){
+        personDAOImpl.deleteById(id);
+        System.out.println("Deleted");
+    }
 
-    public void updatePerson(int id, String name, String lastName, String login, String password){
-        personDAOImpl.update(id, name, lastName, login, password);
+
+    public void updatePerson(Person person) {
+        personDAOImpl.update(person.getId(), person.getFirstName(), person.getLastName(), person.getLogin(), person.getPassword());
     }
 }

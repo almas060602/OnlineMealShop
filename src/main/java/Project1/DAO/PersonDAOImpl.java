@@ -45,6 +45,15 @@ public class PersonDAOImpl implements PersonDAO {
             session.close();
     }
 
+    @Override
+    public void deleteById(int id) {
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        session.delete(session.get(Person.class, id));
+        session.getTransaction().commit();
+        session.close();
+    }
+
 
     @Override
     public Person update(int id, String name, String lastName, String login, String password) {
@@ -55,7 +64,7 @@ public class PersonDAOImpl implements PersonDAO {
         person.setLastName(lastName);
         person.setLogin(login);
         person.setPassword(password);
-        session.save(person);
+        session.update(person);
         session.getTransaction().commit();
         session.close();
         return person;

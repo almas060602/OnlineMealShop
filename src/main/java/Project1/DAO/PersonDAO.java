@@ -9,5 +9,6 @@ public interface PersonDAO {
     public List<Person> getAll();
     public Person findByID(int id);
     public void delete(Person o);
+    public void deleteById(int id);
     public Person update(int id, String name, String lastName, String login, String password);
 }

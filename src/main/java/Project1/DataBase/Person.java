@@ -1,5 +1,6 @@
 package Project1.DataBase;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -24,6 +25,7 @@ public class Person {
     @Column(name = "passwordpeople")
     private String password;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "person",
             cascade = CascadeType.ALL,
             fetch = FetchType.EAGER)
@@ -103,6 +105,6 @@ public class Person {
                 ", lastName='" + lastName + '\'' +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
-                '}';
+                '}' + "\n";
     }
 }

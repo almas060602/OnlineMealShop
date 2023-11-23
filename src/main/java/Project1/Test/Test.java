@@ -8,6 +8,8 @@ import Project1.Service.MealService;
 import Project1.Service.PersonService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.util.List;
+
 public class Test {
     public static void main(String[] args) {
 
@@ -15,14 +17,18 @@ public class Test {
                 new AnnotationConfigApplicationContext(MyConfig.class);
 
         final PersonService personService = new PersonService();
-        final MealService mealService = new MealService();
 
-        Person p1 = personService.getPersonById(1);
+        Person person = personService.getPersonById(1);
+        System.out.println(person.getFirstName());
 
-        Meal m1 = new Fruit("Apple", 20, 250);
-        p1.addMeal(m1);
-        m1.setPerson(p1);
-        mealService.saveMeal(m1);
+//        final MealService mealService = new MealService();
+//
+//        Person p1 = personService.getPersonById(1);
+//
+//        Meal m1 = new Fruit("Apple", 20, 250);
+//        p1.addMeal(m1);
+//        m1.setPerson(p1);
+//        mealService.saveMeal(m1);
 
     }
 }
